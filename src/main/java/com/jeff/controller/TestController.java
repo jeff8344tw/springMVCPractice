@@ -4,9 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/mvc")
+//@RequestMapping("/mvc")
 public class TestController {
 
     /**
@@ -55,6 +56,24 @@ public class TestController {
     @RequestMapping("testREST/{id}/{username}")
     public String testREST(@PathVariable("id") Integer id, @PathVariable("username") String userName){
         System.out.println("id = "+id+" username = "+userName);
+        return "success";
+    }
+
+    /**
+     * view作用: 處理模型數據，實現葉面跳轉(轉發，重定向)
+     * View類型:
+     * InternalResourceView: 轉發視圖
+     * JstlView: 轉發視圖
+     * redirectView: 重定向視圖
+     */
+    @RequestMapping("/testRedirect")
+    public String testRedirect(){
+        return "redirect:/index.jsp";
+    }
+
+    @RequestMapping("/testEncoding")
+    public String testEncoding(String username){
+
         return "success";
     }
 }

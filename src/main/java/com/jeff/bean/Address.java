@@ -1,4 +1,4 @@
-package bean;
+package com.jeff.bean;
 
 public class Address {
 

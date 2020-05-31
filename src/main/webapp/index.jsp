@@ -16,10 +16,17 @@
 <body>
     <h2>Hello World!</h2>
     <a href="test">test springMVC</a>
+    <br />
+    <a href="emps">emp info</a>
 
     <br/>
     <form action="testRest" method="post">
         <input type="submit" value="testPost" />
+    </form>
+    <br/>
+    <form action="/testEncoding" method="post">
+        <input name="username" type="text" />
+        <input type="submit" value="testEncoding" />
     </form>
 
     <br/>
