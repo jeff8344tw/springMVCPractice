@@ -11,6 +11,19 @@
 <head>
     <title>展示員工訊息</title>
     <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/css/index_work.css" />
+    <script type="text/javascript" src="${pageContext.servletContext.contextPath}/js/jquery-3.5.1.min.js" >
+        $(function (){
+            $(".del").click(function(){
+                // submit()將所獲得的form元素提交
+                if(confirm("確認刪除嗎?")) {
+                    $("form").attr("action", $(this).attr("href")).submit();
+                    return false;
+                }
+                // $("form").attr("action", this.herf).submit();
+                return false; // 將超連結的默認行為取消
+            });
+        }); //預加載函數或文檔就緒函數
+    </script>
 </head>
 <body>
     <table>
@@ -32,10 +45,14 @@
                 <td>
                     <a href="emp/${emp.id}">UPDATE</a>
                     <a href="editEmp/${emp.id}">UPDATE2</a>
-                    <a href="emp">DELETE</a>
+                    <a class = "del" href="emp/${emp.id}">DELETE</a>
                 </td>
             </tr>
         </c:forEach>
     </table>
+
+    <form method = "POST" >
+        <input type="hidden" name="_method" value="DELETE" />
+    </form>
 </body>
 </html>

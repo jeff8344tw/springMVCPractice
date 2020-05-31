@@ -97,7 +97,7 @@ public class EmpController {
     }
 
     /**
-     * 獲取要回顯的數據，跳轉到修改頁面，並回顯
+     * 修改員工訊息
      * @param id
      * @param map
      * @return
@@ -116,6 +116,12 @@ public class EmpController {
         map.put("depts", depts);
         map.put("genders", genders);
         return "edit";
+    }
+
+    @RequestMapping(value = "emp/{id}", method = RequestMethod.DELETE)
+    public String deleteEmp(@PathVariable("id") Integer id){
+        employeeDao.delete(id);
+        return "redirect:/emps";
     }
 
 }
