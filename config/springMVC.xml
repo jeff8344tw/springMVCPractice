@@ -50,4 +50,18 @@
         <property name="maxUploadSize" value="88888888" />
     </bean>
 
+    <mvc:interceptors>
+        <!--默認攔截所有請求-->
+        <bean class="com.jeff.interceptor.FirstInterceptor"></bean>
+        <bean class="com.jeff.interceptor.SecondInterceptor"></bean>
+        <!--此方式要求攔截器類上必須加註解@Component-->
+<!--        <ref bean="firstInterceptor" />-->
+        <!--設置自定義攔截方式-->
+<!--        <mvc:interceptor>-->
+<!--            <bean></bean>-->
+<!--            <mvc:mapping path="" />-->
+<!--            <mvc:exclude-mapping path="" />-->
+<!--        </mvc:interceptor>-->
+    </mvc:interceptors>
+
 </beans>
