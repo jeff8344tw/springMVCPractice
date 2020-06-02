@@ -55,4 +55,17 @@
     <servlet-name>springMVC</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+  
+<!--  <listener>-->
+<!--    <listener-class>com.jeff.listener.springListener</listener-class>-->
+<!--  </listener>-->
+
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:spring.xml</param-value>
+  </context-param>
 </web-app>

@@ -1,10 +1,15 @@
 package com.jeff.controller;
 
+import com.jeff.bean.Teacher;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 
 @Controller
 //@RequestMapping("/mvc")
@@ -75,5 +80,13 @@ public class TestController {
     public String testEncoding(String username){
 
         return "success";
+    }
+
+    @RequestMapping("/testListener")
+    public void testListener(HttpSession session){
+        ServletContext servletContext = session.getServletContext();
+        ApplicationContext ac = (ApplicationContext) servletContext.getAttribute("ac");
+        Teacher teacher = ac.getBean("teacher", Teacher.class);
+        System.out.println(teacher);
     }
 }

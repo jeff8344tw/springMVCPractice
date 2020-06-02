@@ -50,6 +50,14 @@
         <property name="maxUploadSize" value="88888888" />
     </bean>
 
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="java.lang.NullPointerException">error</prop>
+            </props>
+        </property>
+    </bean>
+
     <mvc:interceptors>
         <!--默認攔截所有請求-->
         <bean class="com.jeff.interceptor.FirstInterceptor"></bean>

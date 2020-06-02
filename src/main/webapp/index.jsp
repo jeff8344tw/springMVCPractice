@@ -74,5 +74,9 @@
     </form>
 
     <input type="button" value="testAJAX" onclick="test()" />
+
+    <br />
+
+    <a href="textListener" >test listener</a>
 </body>
 </html>
